@@ -29,12 +29,13 @@ class ItemDetail extends React.Component {
 
     purchase = () => {
         const itemId = this.state.item.id;
+        const { authStore } = this.props;
         axios.post(
             DataHelper.baseURL() + '/items/' + itemId + '/purchase/',
             {},
             {
                 headers: {
-                    'Authorization': DataHelper.getAuthToken()
+                    'Authorization': authStore.authToken
                 }
             }
         ).then((response) => {
