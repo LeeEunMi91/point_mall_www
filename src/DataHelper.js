@@ -2,7 +2,11 @@ import { observable, computed } from 'mobx';
 
 let instance;
 class DataHelper {
+<<<<<<< HEAD
     @observable authToken = '';
+=======
+    @observable authToken = null;
+>>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
 
     constructor() {
         if (instance) return instance;
@@ -32,7 +36,11 @@ class DataHelper {
 
     @computed
     get isLoggedIn() {
+<<<<<<< HEAD
         return this.authToken != null || localStorage.removeItem('auth_token') != null;
+=======
+        return this.authToken != null || localStorage.getItem('auth_token') != null;
+>>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
     }
 
     static baseURL() {
@@ -50,6 +58,9 @@ class DataHelper {
         return dataHelper.getAuthToken();
     }
 
+<<<<<<< HEAD
 }
 
+=======
+>>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
 export default DataHelper;
