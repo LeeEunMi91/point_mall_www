@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import DataHelper from '../DataHelper';
 
+import { autorun } from 'mobx'
+
 class Header extends React.Component {
 
     constructor(props) {
@@ -10,7 +12,14 @@ class Header extends React.Component {
         this.state = {
             categories: []
         };
+        
+        const helper = new DataHelper();
+
+        autorun(() => {
+            console.log('helper'+helper.authToken);
+        });
     }
+    
 
     componentDidMount() {
         this.indexCategories();
