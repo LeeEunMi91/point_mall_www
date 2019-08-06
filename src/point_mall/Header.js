@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { autorun } from 'mobx';
 import DataHelper from '../DataHelper';
 
 import { autorun } from 'mobx'
@@ -12,11 +13,18 @@ class Header extends React.Component {
         this.state = {
             categories: []
         };
+<<<<<<< HEAD
         
         const helper = new DataHelper();
 
         autorun(() => {
             console.log('helper'+helper.authToken);
+=======
+
+        const helper = new DataHelper();
+        autorun(() => {
+            console.log('header' + helper.authToken);
+>>>>>>> e70e8e0d6807ed512c2e9370a01efb54964c6a49
         });
     }
     
