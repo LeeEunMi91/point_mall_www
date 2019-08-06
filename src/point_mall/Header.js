@@ -1,36 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { autorun } from 'mobx';
+import { observer } from 'mobx-react';
 import DataHelper from '../DataHelper';
 
-import { autorun } from 'mobx'
-
+@observer
 class Header extends React.Component {
 
+    helper = new DataHelper();
     constructor(props) {
         super(props);
         this.state = {
             categories: []
         };
-<<<<<<< HEAD
-        
-        const helper = new DataHelper();
-
-        autorun(() => {
-            console.log('helper'+helper.authToken);
-=======
-
-        const helper = new DataHelper();
-        autorun(() => {
-            console.log('header' + helper.authToken);
->>>>>>> e70e8e0d6807ed512c2e9370a01efb54964c6a49
-        });
     }
     
-
     componentDidMount() {
         this.indexCategories();
+    
     }
 
     indexCategories() {
@@ -41,6 +28,10 @@ class Header extends React.Component {
                     categories: categories
                 });
             });
+    }
+
+    logout = () => {
+        this.helper.deleteToken();
     }
 
     render() {
@@ -56,7 +47,11 @@ class Header extends React.Component {
                 <div className="header-right">
                     <Link to="/cart/items">Cart</Link>
                     <Link to="/me/items">My Items</Link>
-                    <Link to="/login">Login</Link>
+                    {
+                        this.helper.isLoggedIn ?
+                            <Link to="#" onClick={this.logout}>Logout</Link> :
+                            <Link to="/login">Login</Link> 
+                    }
                 </div>
             </header>
         );
