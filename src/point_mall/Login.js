@@ -11,11 +11,7 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username: 'admin',
-<<<<<<< HEAD
             password: '4444'
-=======
-            password: 'admin'
->>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
         };
     }
 
@@ -44,10 +40,6 @@ class Login extends React.Component {
             }
             ).then((response) => {
                 const token = response.data;
-<<<<<<< HEAD
-=======
-                const { authStore, history } = this.props;
->>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
                 authStore.setToken(token);
                 history.push('/');
             });

@@ -1,14 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-<<<<<<< HEAD
 import DataHelper from '../DataHelper';
 import { inject, observer } from 'mobx-react';
-=======
-import { observer } from 'mobx-react';
-import DataHelper from '../DataHelper';
-import { inject } from 'mobx-react';
->>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
 
 @inject('authStore')
 @observer
@@ -60,11 +54,7 @@ class Header extends React.Component {
                     {
                         authStore.isLoggedIn ?
                             <button onClick={this.logout}>Logout</button> :
-<<<<<<< HEAD
                             <Link to="/login">Login</Link> 
-=======
-                            <Link to="/login">Login</Link>
->>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
                     }
                 </div>
             </header>

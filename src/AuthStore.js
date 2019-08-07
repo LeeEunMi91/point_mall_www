@@ -2,11 +2,6 @@ import { observable, action, computed } from 'mobx';
 
 export default class AuthStore {
     BASE_URL = 'http://localhost:8003';
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 92ac06ca7a9524e45d1acb388a8625cd07e22d3a
     @observable authToken = null;
 
     constructor() {
