@@ -2,9 +2,11 @@ import { observable, action, computed } from 'mobx';
 
 export default class AuthStore {
     BASE_URL = 'http://localhost:8003';
+    
     @observable authToken = null;
 
-    constructor() {
+    constructor(rootStore) {
+        this.rootStore = rootStore;
         this.authToken = localStorage.getItem('auth_token');
     }
 
@@ -14,6 +16,7 @@ export default class AuthStore {
     }
 
     @action deleteToken() {
+        this.rootStore.itemStore.clearCartItems();
         localStorage.removeItem('auth_token');
         this.authToken = null;
     }
